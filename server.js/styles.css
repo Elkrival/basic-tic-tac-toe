@@ -1,0 +1,81 @@
+#board {
+    width: 800px;
+    height: 800px;
+    left: 25%;
+    top: 20%;
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    position: absolute;
+    justify-content: center;
+}
+.wrap { 
+    width: 250px;
+    height: 250px;
+    perspective: 600px;
+}
+.board__tile {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    margin: auto;
+}
+        .board__tile:active {
+        animation: spin 5s infinite linear;
+        }
+.board__tile--cube{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    
+}
+.board__tile--cube--back {
+	transform: translateZ(-100px) rotateY(180deg);
+}
+.board__tile--cube--right {
+	transform: rotateY(-270deg) translateX(100px);
+	transform-origin: top right;
+}
+.board__tile--cube--left {
+	transform: rotateY(270deg) translateX(-100px);
+	transform-origin: center left;
+}
+.board__tile--cube--top {
+	transform: rotateX(-90deg) translateY(-100px);
+	transform-origin: top center;
+}
+.board__tile--cube--bottom {
+	transform: rotateX(90deg) translateY(100px);
+	transform-origin: bottom center;
+}
+.board__tile--cube--front {
+	transform: translateZ(100px);
+}
+@keyframes spin {
+	from { transform: rotateY(0); }
+	to { transform: rotateY(360deg); }
+}
+.text {
+    position: absolute;
+  top: 30%;
+  left:30%;
+  width: 100%;
+  text-shadow:     0 1px 0 hsl(174,5%,80%),
+	                 0 2px 0 hsl(174,5%,75%),
+	                 0 3px 0 hsl(174,5%,70%),
+	                 0 4px 0 hsl(174,5%,66%),
+	                 0 5px 0 hsl(174,5%,64%),
+	                 0 6px 0 hsl(174,5%,62%),
+	                 0 7px 0 hsl(174,5%,61%),
+	                 0 8px 0 hsl(174,5%,60%),	
+	                 0 0 5px rgba(0,0,0,.05),
+	                0 1px 3px rgba(0,0,0,.2),
+	                0 3px 5px rgba(0,0,0,.2),
+	               0 5px 10px rgba(0,0,0,.2),
+	              0 10px 10px rgba(0,0,0,.2),
+                  0 20px 20px rgba(0,0,0,.3);
+    height: 50%;
+    font-size: 75px;
+    transform: translateY(-180deg);
+}
